@@ -1,3 +1,6 @@
+from platforms.base import TableCreator
+
+
 class GlueTableCreator(TableCreator):
 
     def create_table(self, table):
