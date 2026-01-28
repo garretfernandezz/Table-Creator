@@ -1,5 +1,3 @@
-database,table_name,column_name,data_type,nullable,primary_key,comment
-analytics,users,user_id,INT,false,true,User identifier
-analytics,users,user_name,STRING,false,false,User name
-analytics,users,email,STRING,true,false,Email address
-analytics,users,created_at,TIMESTAMP,false,false,Record creation time
+namespace,table_name,column_name,data_type,nullable,primary_key,comment
+workspace.default,customer_events,id,INT,false,true,primary id
+workspace.default,customer_events,event_type,STRING,true,false,event type

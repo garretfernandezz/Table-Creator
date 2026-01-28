@@ -12,8 +12,21 @@ class DatabricksTableCreator(TableCreator):
             nullable = "" if col.nullable else "NOT NULL"
             cols.append(f"{col.name} {col.data_type} {nullable}")
 
+        # Split namespace → catalog + schema
+        try:
+            catalog, schema = table.namespace.split(".")
+        except ValueError:
+            raise ValueError(
+                f"Databricks requires namespace as 'catalog.schema', got '{table.namespace}'"
+            )
+
+        # Ensure schema exists
+        self.spark.sql(
+            f"CREATE SCHEMA IF NOT EXISTS {catalog}.{schema}"
+        )
+
         ddl = f"""
-        CREATE TABLE IF NOT EXISTS {table.database}.{table.table_name} (
+        CREATE TABLE IF NOT EXISTS {catalog}.{schema}.{table.table_name} (
             {", ".join(cols)}
         )
         USING DELTA
