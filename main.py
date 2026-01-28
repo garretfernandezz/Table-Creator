@@ -1,7 +1,7 @@
 import sys
-from table_creator.parsers.csv_parser import parse_schema_csv
-from table_creator.platforms.databricks import DatabricksTableCreator
-from table_creator.platforms.glue import GlueTableCreator
+from parsers.csv_parser import parse_schema_csv
+from platforms.databricks import DatabricksTableCreator
+from platforms.glue import GlueTableCreator
 
 def main(csv_path, platform):
     tables = parse_schema_csv(csv_path)

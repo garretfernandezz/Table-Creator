@@ -1,5 +1,5 @@
 import boto3
-from table_creator.platforms.base import TableCreator
+from platforms.base import TableCreator
 
 
 class GlueTableCreator(TableCreator):

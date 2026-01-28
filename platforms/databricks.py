@@ -1,4 +1,4 @@
-from table_creator.platforms.base import TableCreator
+from platforms.base import TableCreator
 
 
 class DatabricksTableCreator(TableCreator):

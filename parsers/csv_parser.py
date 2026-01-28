@@ -1,6 +1,7 @@
 import csv
-from table_creator.models.table import Table
-from table_creator.models.column import Column
+from models.table import Table
+from models.column import Column
+
 
 def parse_schema_csv(file_path):
     tables = {}
